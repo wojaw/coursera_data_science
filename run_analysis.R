@@ -43,5 +43,4 @@ tidy_data_set = aggregate.data.frame(FUN=mean, na.rm=T,
   x=merged_data_set[,grep('_', colnames(merged_data_set))],
   by=merged_data_set[,c('subject','activity')])
 
-### In order to reproduce the uploaded txt file 'tidy_data_set.txt', uncomment and execute the line below:
-# write.table(tidy_data_set, 'tidy_data_set.txt', row.name=F, quote=F)
+write.table(tidy_data_set, 'tidy_data_set.txt', row.name=F, quote=F)

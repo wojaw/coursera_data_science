@@ -1,2 +1,10 @@
-coursera_data_science
-=====================
+**Readme for *Getting and cleaning data* course project**
+==================================================
+####*The script description and the variables code book:*
+
+
+* **project_data** - a list containing the necessary information about the data to be downloaded, the files and variables to be read and processed;
+* **features** and **activities** - data frames containing the apropriate data from the *features.txt* and *activity_labels.txt* files found in the *UCI HAR Dataset* directory (*id* and *name* rows in both cases);
+* **data_sets** - a list of 2 data frames (*data_sets$test* and *data_sets$train*), containing the data read from *X_test/train.txt*, *y_test/train.txt* and *subject_test/train.txt* (respectively for the *test* and *train* datasets), which are filtered to contain only the mean and standard deviation for each measurement; the filtering process is based on finding the *-mean()* and *-std()* expressions in *features$name* and setting the values of the respective column numbers in *project_data$colnums*;
+* **merged_data_set** - the data frame with the first data set as described in points 1. to 4. in the course assignement; both test sets are merged with only the mean and std data extracted; they are named according to *features$name* but the '-' signs are replaced with '_' and '()' are removed, so one can use the names in getting the appropriate rows from the data frame (e.g. *merged_data_set$tBodyAccMag_mean*); the *merged_data_set$activity* vector is represented by the descriptive names found in *activities$name*, the *merged_data_set$subject* - by the integer ids found in *subject_test/train.txt* files, whereas the *merged_data_set$setname* vector allows to retrieve the information about the set of origin for every row;
+* **tidy_data_set** - the data frame described in 5. which means that it contains the mean of each variable for every activity and every subject (there are 6 activities and 30 subjects and so the data frame consists of 6\*30=180 rows); the *tidy_data_set* was obtained from *merged_data_set* by using the aggregate function.
